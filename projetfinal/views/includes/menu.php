@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">The World Of Video Games</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="accueil">Accueil</a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">jeux</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="nouveaute">nouveauté</a>
+              <a class="dropdown-item" href="bibliotheque">Bibliothèque</a>
+            </div>
+          </li>
+          <?php
+          if(!empty($_SESSION['login']))
+          {
+            ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Magasin</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="nouveaute">Mon paniers</a>
+
+              </div>
+            </li>
+
+            <?php
+          }
+         ?>
+         <?php if(!empty($_SESSION['login'])) {?>
+
+           <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+             <div class="dropdown-menu" aria-labelledby="dropdown01">
+               <a class="dropdown-item" href="connexion">Profil</a>
+               <a class="dropdown-item" href="logout">Deconnexion</a>
+             </div>
+
+           <?php }else{
+             if(isset($_SESSION['login_admin'])){
+               ?>
+               <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+                 <div class="dropdown-menu" aria-labelledby="dropdown01">
+                   <a class="dropdown-item" href="panneau">Gestion utilisateur</a>
+                   <a class="dropdown-item" href="logout">Deconnexion</a>
+                 </div>
+            <?php }else{?>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+           <div class="dropdown-menu" aria-labelledby="dropdown01">
+             <a class="dropdown-item" href="connexion">Connexion</a>
+             <a class="dropdown-item" href="inscription">Inscription</a>
+           </div>
+         </li>
+       <?php }}?>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="feedback">FeedBack</a>
+            </div>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="rechercher" aria-label="Rechercher">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </nav>
