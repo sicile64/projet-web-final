@@ -9,15 +9,13 @@
           <li class="nav-item active">
             <a class="nav-link" href="accueil">Accueil</a>
           </li>
-          <li class="nav-item">
-          </li>
-          <li class="nav-item">
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">jeux</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="nouveaute">nouveauté</a>
-              <a class="dropdown-item" href="bibliotheque">Bibliothèque</a>
+              <a class="dropdown-item" href="ps4">PS4</a>
+              <a class="dropdown-item" href="xbox">XBOX</a>
+              <a class="dropdown-item" href="pc">PC</a>
             </div>
           </li>
           <?php
@@ -40,7 +38,7 @@
            <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
              <div class="dropdown-menu" aria-labelledby="dropdown01">
-               <a class="dropdown-item" href="connexion">Profil</a>
+               <a class="dropdown-item" href="#">Profil de <?=$_SESSION['login']?></a>
                <a class="dropdown-item" href="logout">Deconnexion</a>
              </div>
 
@@ -62,14 +60,22 @@
            </div>
          </li>
        <?php }}?>
-
+          <?php if(!empty($_SESSION['login'])){
+            ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="feedback">FeedBack</a>
+              </div>
+            </li>
+        <?php }else {?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="feedback">FeedBack</a>
+              <a class="dropdown-item" href="connexion">FeedBack</a>
             </div>
           </li>
-
+          <?php } ?>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="rechercher" aria-label="Rechercher">

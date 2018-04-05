@@ -29,4 +29,15 @@ function getAdmin($login) {
     $req = $bdd->query("SELECT * FROM admin WHERE login IN(\"$login\")");
     return $info=$req->fetch();
 }
+function AllinfoTable(){
+$bdd=co_db();
+$req = $bdd->query("SELECT * FROM clients");
+return $req;
+}
+function delUser($id){
+ $bdd = co_db();
+ $req = $bdd->query('DELETE FROM clients WHERE idclient = '.$id);
+ return $req;
+}
+
  ?>
