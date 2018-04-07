@@ -40,4 +40,18 @@ function delUser($id){
  return $req;
 }
 
+function gameExist($nom ,$plateforme) {
+  $bdd = co_db();
+  $reponse = $bdd->prepare("SELECT * FROM jeux  WHERE nom = ? AND plateform= ?");
+  $reponse->execute(array($nom ,$plateforme));
+  return $reponse->rowCount();
+}
+
+function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi, $date){
+ $bdd = co_db();
+ $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi, datesortie) VALUES(?, ?, ?, ?, ?, ?, ?)");
+ $req->execute(array($nom, $genre, $plateforme, $editeur, $prix, $pegi, $date));
+ return $req;
+}
+
  ?>
