@@ -40,11 +40,13 @@
         <input type="number"  id="pegi" class="form-control" placeholder="pegi" name="pegi" required>
         <label for="pegi">pegi</label>
       </div>
+      <div class="form-label-group">
+        <textarea name="description" class="textarea" required></textarea>
+      </div>
     <div class="form-label-group">
       <input type="date" id="date" class="form-control" placeholder="date" name="date" required>
       <label for="date">date de sortie</label>
     </div>
-      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">ajouter</button>
       <br>
       <a href="accueil"><button class="btn btn-lg btn-primary btn-block" type="button">Retour</button></a>

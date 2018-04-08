@@ -47,10 +47,10 @@ function gameExist($nom ,$plateforme) {
   return $reponse->rowCount();
 }
 
-function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi, $date){
+function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description, $date){
  $bdd = co_db();
- $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi, datesortie) VALUES(?, ?, ?, ?, ?, ?, ?)");
- $req->execute(array($nom, $genre, $plateforme, $editeur, $prix, $pegi, $date));
+ $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi,description,datesortie) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+ $req->execute(array($nom, $genre, $plateforme, $editeur, $prix, $pegi, $description, $date));
  return $req;
 }
 

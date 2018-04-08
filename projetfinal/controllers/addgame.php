@@ -2,7 +2,8 @@
 if(!empty($_POST))
 {
 
-    if(!empty($_POST['nom']) AND !empty($_POST['genre']) AND !empty($_POST['plateforme']) AND !empty($_POST['editeur']) AND !empty($_POST['prix']) AND !empty($_POST['pegi']) AND !empty($_POST['date']))
+    if(!empty($_POST['nom']) AND !empty($_POST['genre']) AND !empty($_POST['plateforme']) AND !empty($_POST['editeur']) AND !empty($_POST['prix']) AND !empty($_POST['pegi']) AND !empty($_POST['date'])
+      AND !empty('description'))
     {
         $nom = htmlspecialchars($_POST['nom']);
         $genre = htmlspecialchars($_POST['genre']);
@@ -11,6 +12,7 @@ if(!empty($_POST))
         $prix = $_POST['prix'];
         $pegi = $_POST['pegi'];
         $date = $_POST['date'];
+        $description=$_POST['description'];
         $gameExist = gameExist($nom ,$plateforme);
 
         if($gameExist==1){
@@ -27,14 +29,16 @@ if(!empty($_POST))
             if($pegi==3 OR $pegi==12 OR $pegi==16 OR $pegi==18)
             {
               try{
-               $req = addGame($nom, $genre, $plateforme, $editeur,$prix,$pegi,$date);
+               $req = addGame($nom, $genre, $plateforme, $editeur,$prix,$pegi,$description,$date);
                header('Location:ajouterjeux');
-               $errorMessage = "le jeux à bien été ajouter";
+
+
 
                }
               catch (Exception $e){
                 $errorMessage = "Une erreur c'est produite.";
                }
+
             }
             else{
               $errorMessage="pegi incorrect";
