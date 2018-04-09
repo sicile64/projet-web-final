@@ -54,4 +54,10 @@ function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description,
  return $req;
 }
 
+function AllinfoGame(){
+$bdd=co_db();
+$req = $bdd->query("SELECT * FROM jeux");
+return $req;
+}
+
  ?>

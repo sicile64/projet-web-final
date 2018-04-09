@@ -7,9 +7,14 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">panneau feedback</a>
-            <a class="nav-link" href="logout">Deconnexion</a>
-
+            <a class="nav-link" href="#">Panneau Feedback</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Panneau Jeux </a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="logout">Déconnexion</a>
+          </li>
         </ul>
       </div>
     </nav>
