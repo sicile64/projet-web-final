@@ -30,7 +30,7 @@ if(!empty($_POST))
             {
               try{
                $req = addGame($nom, $genre, $plateforme, $editeur,$prix,$pegi,$description,$date);
-               header('Location:ajouterjeux');
+               header('Location:panneaujeux');
 
 
 

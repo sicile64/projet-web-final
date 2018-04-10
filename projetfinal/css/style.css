@@ -16,3 +16,9 @@ body {
   background-color: #f5f5f5;
   margin-left: auto;
 }
+
+textarea{
+  overflow: auto;
+  resize: vertical;
+  width: 390px;
+}

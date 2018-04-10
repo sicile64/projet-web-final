@@ -15,43 +15,23 @@
   <body>
     <form class="form-signin" method="post">
       <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">ajouter jeux</h1>
+        <h1 class="h3 mb-3 font-weight-normal">modifier jeux</h1>
       </div>
       <div class="form-label-group">
-        <input type="text" id="nom" class="form-control" placeholder="nom" name="nom" required autofocus>
-        <label for="nom">nom</label>
-      </div>
-      <div class="form-label-group">
-        <input type="text" id="genre" class="form-control" placeholder="genre" name="genre" required>
-        <label for="genre">genre</label>
-      </div>
-      <div class="form-label-group">
-        <input type="text" id="plateforme" class="form-control" placeholder="plateforme" name="plateforme" required>
-        <label for="plateforme">plateforme</label>
-      </div>
-      <div class="form-label-group">
-        <input type="text" id="editeur" class="form-control" placeholder="editeur" name="editeur" required>
-        <label for="editeur">editeur</label>
-      </div>
-      <div class="form-label-group">
-        <input type="number" step="0.01" id="prix" class="form-control" placeholder="prix" name="prix" required>
+        <input type="number" id="prix" class="form-control" placeholder="prix" name="prix" step="0.01" required autofocus>
         <label for="prix">prix</label>
       </div>
       <div class="form-label-group">
-        <input type="number"  id="pegi" class="form-control" placeholder="pegi" name="pegi" required>
-        <label for="pegi">pegi</label>
+        <input type="date" id="date" class="form-control" placeholder="date" name="date" required autofocus>
+        <label for="date">date</label>
       </div>
+
       <div class="form-label-group">
         <textarea name="description" class="textarea" required></textarea>
-      </div>
-    <div class="form-label-group">
-      <input type="date" id="date" class="form-control" placeholder="date" name="date" required>
-      <label for="date">date de sortie</label>
     </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">ajouter</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">modifer</button>
       <br>
-      <a href="accueil"><button class="btn btn-lg btn-primary btn-block" type="button">Retour</button></a>
-      <p class="mt-5 mb-3 text-muted text-center">&copy;Costa Francesco 2017-2018</p>
+      <a href="panneaujeux"><button class="btn btn-lg btn-primary btn-block" type="button">Retour</button></a>
       <?php
           // Rencontre-t-on une erreur ?
               if(isset($errorMessage)){
@@ -59,7 +39,5 @@
               }
           ?>
     </form>
-
   </body>
-
 </html>

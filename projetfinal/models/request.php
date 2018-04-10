@@ -77,4 +77,17 @@ function Infoid($id){
  return $info=$req->fetch();
 }
 
+function infogame($id){
+  $bdd=co_db();
+  $req=$bdd->query('SELECT * FROM jeux WHERE idjeux='.$id);
+  return $info=$req->fetch();
+
+}
+
+function setGameData($id,$prix,$description,$date){
+  $bdd=co_db();
+   $req = $bdd->prepare('UPDATE jeux SET prix="'.$prix.'", description="'.$description.'", datesortie="'.$date.'" WHERE  idjeux='.$id);
+   $req->execute();
+}
+
  ?>
