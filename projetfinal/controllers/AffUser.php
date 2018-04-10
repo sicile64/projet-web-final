@@ -11,7 +11,7 @@
           <div class="col-md-2"><div align="center">
             <form action="delete" method="get">
                 <input type="hidden" name="id" value=<?=$donnees['idclient']?>>
-                <input value="Supprimer" type="submit"/>
+                <input value="Supprimer" type="submit">
              </form>
           </div></div>
       </div>

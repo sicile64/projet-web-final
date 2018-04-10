@@ -7,10 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
+            <a class="nav-link" href="panneau">Panneau utilisateurs </a>
+          </li>
+          <li class="nav-item active">
             <a class="nav-link" href="#">Panneau Feedback</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Panneau Jeux </a>
+            <a class="nav-link" href="panneaujeux">Panneau Jeux </a>
           </li>
           <li class="nav-item active">
               <a class="nav-link" href="logout">Déconnexion</a>

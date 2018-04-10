@@ -16,19 +16,18 @@
         <br/>
         <h1 align="center"> Panneau Jeux </h1>
         <br/>
-        <div class="container">
             <div class="row">
-                        <div class="col-md-12"><div align="center">Données sur les jeux Bibliothèque</div></div>
                         <br>
-                        <div class="col-md-1"><div align="center">ID</div></div>
-                        <div class="col-md-2"><div align="center">Nom</div></div>
+                        <div class="col-md-1"><div align="center">Nom</div></div>
                         <div class="col-md-1"><div align="center">Genre</div></div>
                         <div class="col-md-1"><div align="center">plateforme</div></div>
-                        <div class="col-md-2"><div align="center">editeur</div></div>
+                        <div class="col-md-1"><div align="center">editeur</div></div>
                         <div class="col-md-1"><div align="center">prix</div></div>
                         <div class="col-md-1"><div align="center">pegi</div></div>
-                        <div class="col-md-5"><div align="center">description</div></div>
-                        <div class="col-md-3"><div align="center">date de sortie</div></div>
+                        <div class="col-md-3"><div align="center">description</div></div>
+                        <div class="col-md-1"><div align="center">date de sortie</div></div>
+                        <div class="col-md-1"><div align="center">modifier</div></div>
+                        <div class="col-md-1"><div align="center">supprimer</div></div>
+
             </div>
-        </div>
 </html>

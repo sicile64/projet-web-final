@@ -7,11 +7,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if($getUser['password']==$password){
                 session_start();
                 $_SESSION['login'] = $getUser['login'];
-                $_SESSION['id'] = $getUser['id_client'];
+                $_SESSION['id'] = $getUser['idclient'];
                 header('Location: accueil');
+            
+
             }
             else {
-                $errorMessage="error";
+                $errorMessage="error mots de passe";
             }
          }
          else if(!empty($getAdmin)){
@@ -22,8 +24,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                $_SESSION['id_admin'] = $getAdmin['idadmin'];
                header('Location: accueil');
            }
-           else{
-             $errorMessage="error";
+           else {
+             $errorMessage="error mots de passe";
            }
          }
          else {

@@ -38,7 +38,7 @@
            <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
              <div class="dropdown-menu" aria-labelledby="dropdown01">
-               <a class="dropdown-item" href="#">Profil de <?=$_SESSION['login']?></a>
+               <a class="dropdown-item" href="profile">Profil de <?=$_SESSION['login']?></a>
                <a class="dropdown-item" href="logout">Deconnexion</a>
              </div>
 
@@ -46,7 +46,7 @@
              if(isset($_SESSION['login_admin'])){
                ?>
                <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
+                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion</a>
                  <div class="dropdown-menu" aria-labelledby="dropdown01">
                    <a class="dropdown-item" href="panneau">Gestion utilisateur</a>
                    <a class="dropdown-item" href="panneaujeux">Gestion des jeux</a>

@@ -6,6 +6,7 @@
    $reponse->execute(array($login));
    return $reponse->rowCount();
  }
+
  function emailExist($email) {
    $bdd = co_db();
    $reponse = $bdd->prepare("SELECT * FROM clients WHERE email = ?");
@@ -19,21 +20,25 @@
   $req->execute(array($login, $password, $email, $datenaiss));
   return $req;
 }
+
 function getUser($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM clients WHERE login IN(\"$login\")");
     return $info=$req->fetch();
 }
+
 function getAdmin($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM admin WHERE login IN(\"$login\")");
     return $info=$req->fetch();
 }
+
 function AllinfoTable(){
 $bdd=co_db();
 $req = $bdd->query("SELECT * FROM clients");
 return $req;
 }
+
 function delUser($id){
  $bdd = co_db();
  $req = $bdd->query('DELETE FROM clients WHERE idclient = '.$id);
@@ -58,6 +63,18 @@ function AllinfoGame(){
 $bdd=co_db();
 $req = $bdd->query("SELECT * FROM jeux");
 return $req;
+}
+
+function delGame($id){
+ $bdd = co_db();
+ $req = $bdd->query('DELETE FROM jeux WHERE idjeux = '.$id);
+ return $req;
+}
+
+function Infoid($id){
+ $bdd = co_db();
+ $req = $bdd->query('SELECT * FROM clients WHERE idclient='.$id);
+ return $info=$req->fetch();
 }
 
  ?>
