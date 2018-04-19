@@ -52,10 +52,10 @@ function gameExist($nom ,$plateforme) {
   return $reponse->rowCount();
 }
 
-function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description, $date){
+function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description, $date, $jacket){
  $bdd = co_db();
- $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi,description,datesortie) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
- $req->execute(array($nom, $genre, $plateforme, $editeur, $prix, $pegi, $description, $date));
+ $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi,description,datesortie,jacket) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+ $req->execute(array($nom, $genre, $plateforme, $editeur, $prix, $pegi, $description, $date, $jacket));
  return $req;
 }
 
@@ -88,6 +88,12 @@ function setGameData($id,$prix,$description,$date){
   $bdd=co_db();
    $req = $bdd->prepare('UPDATE jeux SET prix="'.$prix.'", description="'.$description.'", datesortie="'.$date.'" WHERE  idjeux='.$id);
    $req->execute();
+}
+
+function InfoGameplat($plateform){
+    $bdd=co_db();
+    $req = $bdd->query("SELECT * FROM jeux WHERE plateform IN (\"$plateform\")");
+    return $req;
 }
 
  ?>

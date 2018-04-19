@@ -10,7 +10,6 @@
     </head>
       <body>
         <?php include 'menu.php'?>
-        <?php include 'contentps4.php' ?>
         <?php include 'footers.php'?>
     </body>
 </html>

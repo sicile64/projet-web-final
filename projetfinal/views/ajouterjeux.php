@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <form class="form-signin" method="post">
+    <form class="form-signin" method="post" enctype="multipart/form-data">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">ajouter jeux</h1>
       </div>
@@ -43,6 +43,9 @@
       </div>
       <div class="form-label-group">
         <textarea name="description" class="textarea" required></textarea>
+      </div>
+      <div class="form-label-group">
+        <input type="file" id="jacket" name="jacket" accept="image/*">
       </div>
     <div class="form-label-group">
       <input type="date" id="date" class="form-control" placeholder="date" name="date" required>
