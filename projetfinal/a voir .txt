@@ -1,7 +1,0 @@
-<?php if($title=='ps4'){?>
-                        <?php include 'contentps4.php'?>
-        <?php } elseif ($title='xbox') {?>
-                    <?php include 'contentxbox.php'?>
-        <?php }else{?>
-                  <?php include 'contentpc.php'?>
-        <?php } ?>
