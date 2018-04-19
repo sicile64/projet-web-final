@@ -71,20 +71,23 @@ function delGame($id){
  return $req;
 }
 
-function Infoid($id){
+function Infoid($id)
+{
  $bdd = co_db();
  $req = $bdd->query('SELECT * FROM clients WHERE idclient='.$id);
  return $info=$req->fetch();
 }
 
-function infogame($id){
+function infogame($id)
+{
   $bdd=co_db();
   $req=$bdd->query('SELECT * FROM jeux WHERE idjeux='.$id);
   return $info=$req->fetch();
 
 }
 
-function setGameData($id,$prix,$description,$date){
+function setGameData($id,$prix,$description,$date)
+{
   $bdd=co_db();
    $req = $bdd->prepare('UPDATE jeux SET prix="'.$prix.'", description="'.$description.'", datesortie="'.$date.'" WHERE  idjeux='.$id);
    $req->execute();
@@ -94,6 +97,112 @@ function InfoGameplat($plateform){
     $bdd=co_db();
     $req = $bdd->query("SELECT * FROM jeux WHERE plateform IN (\"$plateform\")");
     return $req;
+}
+
+function creationPanier()
+{
+  if(isset($_SESSION['panier']))
+  {
+    $_SESSION['panier'] = array();
+    $_SESSION['panier']['nom']= array();
+    $_SESSION['panier']['qte']= array();
+    $_SESSION['panier']['prix']= array();
+    $_SESSION['panier']['verrou']= false;
+  }
+  return true;
+}
+
+function ajoutPanier($idjeux, $nomjeux, $prix, $qte)
+{
+  if(creationPanier() && !isVerrouille())
+  {
+    $positionjeux =array_search($nomjeux, $_SESSION['panier']['nom']);
+    if($positionjeux!==false)
+    {
+      $_SESSION['panier']['qte'][$positionjeux]+=$qte;
+    }
+    else
+    {
+      array_push($_SESSION['panier']['nom'],$nomjeux);
+      array_push($_SESSION['panier']['prix'],$prix);
+      array_push($_SESSION['panier']['qte'],$qte);
+    }
+  }
+  else echo "problème survenu contacter l'administrateur pour en savoir plus sur la marche a suivre";
+}
+
+
+function modifqte($nomjeux, $qte)
+{
+  if(creationPanier() && !isVerrouille())
+  {
+    if($qte>0)
+    {
+      $positionjeux =array_search($nomjeux, $_SESSION['panier']['nom']);
+      if($positionjeux!==false)
+      {
+        $_SESSION['panier']['qte'][$positionjeux]=$qte;
+      }
+
+    }
+    else supprimerjeu($idjeux);
+  }
+  else echo "problème survenu contacter l'administrateur pour en savoir plus sur la marche a suivre";
+}
+
+function countJeux()
+{
+  if(isset($_SESSION['panier']))
+ return count($_SESSION['panier']['nom']);
+ else
+ return 0;
+}
+
+function isVerrouille(){
+   if (isset($_SESSION['panier']) && $_SESSION['panier']['verrou'])
+   return true;
+   else
+   return false;
+}
+function MontantGlobal(){
+   $total=0;
+   for($i = 0; $i < count($_SESSION['panier']['nom_jeu']); $i++)
+   {
+      $total += $_SESSION['panier']['qte_jeu'][$i] * $_SESSION['panier']['prix_jeu'][$i];
+   }
+   return $total;
+}
+
+function supprimejeu($nomjeux){
+   //Si le panier existe
+   if (creationPanier() && !isVerrouille())
+   {
+      //Nous allons passer par un panier temporaire
+      $tmp=array();
+      $tmp['nom'] = array();
+      $tmp['qte'] = array();
+      $tmp['prix'] = array();
+      $tmp['verrou'] = $_SESSION['panier']['verrou'];
+
+      for($i = 0; $i < count($_SESSION['panier']['nom']); $i++)
+      {
+         if ($_SESSION['panier']['nom'][$i] !== $nomjeux)
+         {
+            array_push($tmp['nom'],$_SESSION['panier']['nom'][$i]);
+            array_push($tmp['qte'],$_SESSION['panier']['qte'][$i]);
+            array_push($tmp['prix'],$_SESSION['panier']['prix'][$i]);
+         }
+      }
+      //On remplace le panier en session par notre panier temporaire à jour
+      $_SESSION['panier'] =  $tmp;
+      //On efface notre panier temporaire
+      unset($tmp);
+   }
+   else
+   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
+}
+function supprimePanier(){
+   unset($_SESSION['panier']);
 }
 
  ?>

@@ -15,7 +15,7 @@
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="PS4"><input class="dropdown-item" type="submit" value="PS4"></form>
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="XBOX"><input class="dropdown-item" type="submit" value="XBOX"></form>
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="PC"><input class="dropdown-item" type="submit" value="PC"></form>
-              
+
             </div>
           </li>
           <?php
@@ -25,7 +25,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Magasin</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="nouveaute">Mon paniers</a>
+                <a class="dropdown-item" href="boutique">Mon paniers</a>
 
               </div>
             </li>
