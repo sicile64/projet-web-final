@@ -1,52 +1,54 @@
 <?php
 $erreur = false;
+
 $action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
-if($action !== null){
-   if(!in_array($action,array('ajout', 'suppression', 'suppression_panier', 'refresh')))
+if($action !== null)
+{
+   if(!in_array($action,array('ajout', 'suppression', 'suppressionPanier', 'refresh')))
    $erreur=true;
 
    //récuperation des variables en POST ou GET
-    $n = (isset($_POST['n'])? $_POST['n']:  (isset($_GET['n'])? $_GET['n']:null )) ;
-    $p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
-    $q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
+   $l = (isset($_POST['l'])? $_POST['l']:  (isset($_GET['l'])? $_GET['l']:null )) ;
+   $p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
+   $q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
 
    //Suppression des espaces verticaux
-   $n = preg_replace('#\v#', '',$n);
+   $l = preg_replace('#\v#', '',$l);
    //On verifie que $p soit un float
    $p = floatval($p);
 
    //On traite $q qui peut etre un entier simple ou un tableau d'entier
 
    if (is_array($q)){
-      $qte = array();
+      $QteArticle = array();
       $i=0;
       foreach ($q as $contenu){
-         $qte[$i++] = intval($contenu);
+         $QteArticle[$i++] = intval($contenu);
       }
    }
    else
    $q = intval($q);
 
 }
-if(!$erreur){
+
+if (!$erreur){
    switch($action){
       Case "ajout":
-         ajoutPanier($n,$q,$p);
+         ajouterArticle($l,$q,$p);
          break;
 
       Case "suppression":
-            supprimejeu($n);
+         supprimerArticle($l);
          break;
 
-      Case "suppression_panier":
-          supprimePanier();
-          break;
+     Case "suppressionPanier":
+            supprimePanier();
+            break;
 
       Case "refresh" :
-         for ($i = 0 ; $i < count($qte) ; $i++)
+         for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
-             modifqte($_SESSION['panier']['nom'][$i],round($qte[$i]));
-
+            modifierQTeArticle($_SESSION['panier']['nom'][$i],round($QteArticle[$i]));
          }
          break;
 
@@ -54,4 +56,3 @@ if(!$erreur){
          break;
    }
 }
-?>

@@ -1,19 +1,19 @@
 <?php
 session_start();
-include('models/bdd.php');
-include('models/request.php');
-if($_POST)
-{
+require('models/bdd.php');
+require('models/request.php');
+if($_POST){
     if(!empty($_POST['id'])){
-      creationPanier();
-      $id=$_POST['id'];
-      $infogame=infogame($id);
-      $idjeux=$infogame['idjeux'];
-      $nomjeux=$infogame['nom'];
-      $prix=$infogame['prix'];
-      $qte=1;
-      ajoutPanier($idjeux, $nomjeux, $prix, $qte);
+      creationpanier();
+      $id = $_POST['id'];
+      $infogame = InfoGameid($id);
+      $idjeu = $infogame['idjeux'];
+      $nomjeu = $infogame['nom'];
+      $prix = $infogame['prix'];
+      $plateform = $infogame['plateform'];
+      $qte = 1;
+      ajoutPanier($idjeu, $nomjeu, $prix, $qte, $plateform);
       header('Location: biblio');
-    }
+   }
 }
 ?>

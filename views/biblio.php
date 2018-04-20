@@ -67,7 +67,6 @@ if(isset($_POST['plateform']))
               </div>
             </div>
           </div>
-          <?php if(isset($_SESSION['panier'])) var_dump($_SESSION['panier']); ?>
       </div>
             <?php include 'includes/footers.php' ?>
         </body>
