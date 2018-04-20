@@ -83,7 +83,6 @@ function infogame($id)
   $bdd=co_db();
   $req=$bdd->query('SELECT * FROM jeux WHERE idjeux='.$id);
   return $info=$req->fetch();
-
 }
 
 function setGameData($id,$prix,$description,$date)
@@ -99,10 +98,8 @@ function InfoGameplat($plateform){
     return $req;
 }
 
-function creationPanier()
-{
-  if(isset($_SESSION['panier']))
-  {
+function creationPanier(){
+  if(isset($_SESSION['panier'])){
     $_SESSION['panier'] = array();
     $_SESSION['panier']['nom']= array();
     $_SESSION['panier']['qte']= array();
@@ -116,7 +113,7 @@ function ajoutPanier($idjeux, $nomjeux, $prix, $qte)
 {
   if(creationPanier() && !isVerrouille())
   {
-    $positionjeux =array_search($nomjeux, $_SESSION['panier']['nom']);
+    $positionjeux = array_search($nomjeux, $_SESSION['panier']['nom']);
     if($positionjeux!==false)
     {
       $_SESSION['panier']['qte'][$positionjeux]+=$qte;
@@ -138,7 +135,7 @@ function modifqte($nomjeux, $qte)
   {
     if($qte>0)
     {
-      $positionjeux =array_search($nomjeux, $_SESSION['panier']['nom']);
+      $positionjeux = array_search($nomjeux, $_SESSION['panier']['nom']);
       if($positionjeux!==false)
       {
         $_SESSION['panier']['qte'][$positionjeux]=$qte;
@@ -166,9 +163,9 @@ function isVerrouille(){
 }
 function MontantGlobal(){
    $total=0;
-   for($i = 0; $i < count($_SESSION['panier']['nom_jeu']); $i++)
+   for($i = 0; $i < count($_SESSION['panier']['nom']); $i++)
    {
-      $total += $_SESSION['panier']['qte_jeu'][$i] * $_SESSION['panier']['prix_jeu'][$i];
+      $total += $_SESSION['panier']['qte'][$i] * $_SESSION['panier']['prix'][$i];
    }
    return $total;
 }

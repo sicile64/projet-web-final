@@ -13,10 +13,7 @@ if($_POST)
       $prix=$infogame['prix'];
       $qte=1;
       ajoutPanier($idjeux, $nomjeux, $prix, $qte);
-      header('Location:biblio');
+      header('Location: biblio');
     }
 }
-
-
-
- ?>
+?>
