@@ -22,7 +22,7 @@
 	<?php
 	if (creationPanier())
 	{
-	   $nbArticles=count($_SESSION['panier']['nom']);
+	   $nbArticles=count($_SESSION['panier']['idjeux']);
 	   if ($nbArticles <= 0)
 	   echo "<tr><td>Votre panier est vide <br/><br/><a href=\"biblio\"><input type=\"button\" value=\"Retour\"></a></ td></tr>";
 	   else
@@ -34,7 +34,7 @@
 	         echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qte'][$i])."\"/></td>";
 	         echo "<td>".htmlspecialchars($_SESSION['panier']['prix'][$i])."</td>";
            echo "<td>".htmlspecialchars($_SESSION['panier']['plateform'][$i])."</td>";
-	         echo "<td><a href=\"".htmlspecialchars("boutique?action=suppression&l=".rawurlencode($_SESSION['panier']['nom'][$i]))."\">X</a></td>";
+	         echo "<td><a href=\"".htmlspecialchars("boutique?action=suppression&l=".rawurlencode($_SESSION['panier']['idjeux'][$i]))."\">X</a></td>";
 	         echo "</tr>";
 	      }
 

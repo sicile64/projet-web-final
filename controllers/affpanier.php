@@ -48,7 +48,7 @@ if (!$erreur){
       Case "refresh" :
          for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
-            modifierQTeArticle($_SESSION['panier']['nom'][$i],round($QteArticle[$i]));
+            modifierQTeArticle($_SESSION['panier']['idjeux'][$i],round($QteArticle[$i]));
          }
          break;
 
