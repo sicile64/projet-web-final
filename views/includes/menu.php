@@ -1,3 +1,7 @@
+<?php
+if(!isset($_SESSION['nb_jeu'])) $_SESSION['nbjeu']=0;
+if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
+?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">The World Of Video Games</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +29,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Magasin</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="boutique">Mon paniers</a>
-
+                <a class="dropdown-item" href="boutique">Mon paniers <?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nbjeu']?>)</a>
+                <?php } else{?>(0)<?php } ?>
               </div>
             </li>
 

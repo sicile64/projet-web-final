@@ -142,6 +142,7 @@ function ajoutPanier($idjeu, $nomjeu, $prix, $qte, $plateform){
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
+
 function isVerrouille(){
    if (isset($_SESSION['panier']) && $_SESSION['panier']['verrou'])
    return true;

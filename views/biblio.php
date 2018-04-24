@@ -18,7 +18,7 @@ if(isset($_POST['plateform']))
         </head>
         <body>
             <?php include 'includes/menu.php' ?>
-      <h2 align="center">Actualité <?=$_SESSION['plateform']?></h2>
+      <h2 align="center">Actualité <?=$_POST['plateform']?></h2>
       <div class="album py-5 bg-light">
             <div class="container">
               <div class="row">
@@ -34,7 +34,9 @@ if(isset($_POST['plateform']))
                       <p class="card-text"><?=$donnees['description']?></p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">voir plus</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Prix:<?=$donnees['prix']?>€</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Pegi:<?=$donnees['pegi']?></button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">détails</button>
                           <?php  if(isset($_SESSION['login_admin'])){ ?>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
                         <?php } ?>

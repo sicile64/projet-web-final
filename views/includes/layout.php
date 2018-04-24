@@ -1,3 +1,7 @@
+<?php
+if(!isset($_SESSION['nb_jeu'])) $_SESSION['nbjeu']=0;
+if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
+?>
 <!DOCTYPE html>
     <html>
         <head>
