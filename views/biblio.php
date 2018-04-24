@@ -18,7 +18,10 @@ if(isset($_POST['plateform']))
         </head>
         <body>
             <?php include 'includes/menu.php' ?>
-      <h2 align="center">Actualité <?=$_POST['plateform']?></h2>
+            <br>
+            <br>
+            <br>
+      <h2 align="center">Actualité <?=$_SESSION['plateform']?></h2>
       <div class="album py-5 bg-light">
             <div class="container">
               <div class="row">
@@ -43,7 +46,7 @@ if(isset($_POST['plateform']))
                         <?php  if(isset($_SESSION['login'])){ ?>
                           <form action="addpaniers" method="post">
                             <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >
-                            <input  type="submit" class="btn btn-sm btn-outline-secondary" value="ajouter au panier">
+                            <input  type="submit" class="btn btn-sm btn-outline-secondary" value="ajouter">
                           </form>
                       <?php } ?>
                         </div>
