@@ -15,17 +15,16 @@
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="PS4"><input class="dropdown-item" type="submit" value="PS4"></form>
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="XBOX"><input class="dropdown-item" type="submit" value="XBOX"></form>
               <form action="biblio" method="POST"><input type="hidden" name="plateform" value="PC"><input class="dropdown-item" type="submit" value="PC"></form>
-
             </div>
           </li>
           <?php
           if(!empty($_SESSION['login']))
           {
             ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="boutique">Mon Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nbjeu']?>)</a>
+            <button class="btn btn-outline-success my-2 my-sm-0">
+              <a href="boutique">Mon Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nbjeu']?>)</a>
               <?php } else{?>(0)<?php } ?>
-            </li>
+            </button>
             <?php
           }
          ?>

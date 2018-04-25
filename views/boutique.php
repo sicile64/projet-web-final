@@ -39,7 +39,7 @@
 	         echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qte'][$i])."\"/></td>";
 	         echo "<td>".htmlspecialchars($_SESSION['panier']['prix'][$i])."</td>";
            echo "<td>".htmlspecialchars($_SESSION['panier']['plateform'][$i])."</td>";
-	         echo "<td><button  href=\"".htmlspecialchars("boutique?action=suppression&l=".rawurlencode($_SESSION['panier']['idjeux'][$i]))."\">X</button></td>";
+	         echo "<td><a href=\"".htmlspecialchars("boutique?action=suppression&l=".rawurlencode($_SESSION['panier']['idjeux'][$i]))."\">X</a></td>";
 	         echo "</tr>";
 	      }
 
@@ -59,6 +59,5 @@
 	?>
 </table>
 </form>
-</div>
 </body>
 </html>
