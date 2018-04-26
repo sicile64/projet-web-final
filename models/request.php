@@ -104,6 +104,12 @@ function InfoGameid($id){
   return $info=$requser->fetch();
 }
 
+function details($id){
+  $bdd = co_db();
+  $requser = $bdd->query("SELECT * FROM jeux WHERE idjeux=".$id);
+  return $requser;
+}
+
 function creationPanier(){
 	if(!isset($_SESSION['panier'])){
       $_SESSION['panier'] = array();

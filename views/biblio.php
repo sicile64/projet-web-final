@@ -39,7 +39,10 @@ if(isset($_POST['plateform']))
                         <div class="btn-group">
                           <button type="button" class="btn btn-sm btn-outline-secondary">Prix:<?=$donnees['prix']?>€</button>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Pegi:<?=$donnees['pegi']?></button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">détails</button>
+                          <form action="details" method="post">
+                              <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
+                              <input class="btn btn-sm btn-outline-secondary" value="Détails" type="submit">
+                          </form>
                           <?php  if(isset($_SESSION['login_admin'])){ ?>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
                         <?php } ?>

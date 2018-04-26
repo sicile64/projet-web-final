@@ -13,7 +13,7 @@ if($_POST){
       $plateform = $infogame['plateform'];
       $qte = 1;
       ajoutPanier($idjeu, $nomjeu, $prix, $qte, $plateform);
-      header('Location: biblio');
+      header('Location: boutique');
    }
 }
 ?>
