@@ -45,11 +45,11 @@ if(isset($_POST['id'])){
                     <?php if(!empty($_SESSION['login'])){ ?>
                     <form action="addpaniers" method="post">
                       <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >
-                      <input  type="submit" class="btn btn-sm btn-outline-secondary" value="acheté">
+                      <input  type="submit" class="btn btn-outline-success my-2 my-sm-0" value="acheter">
                     </form>
-                  <?php } ?>
-                  <button href="accueil" class="btn btn-sm btn-outline-secondary" type="button" name="button">Retour</button>
+                    <?php } ?>
                     <br>
+                    <a href="accueil"><button align="center" class="btn btn-outline-success my-2 my-sm-0" type="button" name="button">Retour</button><a>
                 </div>
             </div>
     <?php }?>
