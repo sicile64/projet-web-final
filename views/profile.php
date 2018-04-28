@@ -27,7 +27,16 @@
             </label>
             <br>
             <div class="containerPro">
-                <a href="editprofile"><button class="btn btn-lg btn-primary btn-block" type="submit">modifier</button></a>
+              <form class="" action="editprofile" method="post">
+                  <input type="hidden" name="id" value="<?=$userinfo['login']?>">
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier mots de passe">
+              </form>
+              <br>
+              <form class="" action="editprofile" method="post">
+                  <input type="hidden" name="id" value="<?=$userinfo['login']?>">
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier adresse email">
+              </form>
+
                 <br>
                 <a href="accueil"><button class="btn btn-lg btn-primary btn-block" type="submit">Retour</button></a>
             </div>

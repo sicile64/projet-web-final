@@ -92,6 +92,21 @@ function setGameData($id,$prix,$description,$date)
    $req->execute();
 }
 
+function setProfile($password)
+{
+  $bdd=co_db();
+   $req = $bdd->prepare('UPDATE clients SET password="'.$password);
+   $req->execute();
+}
+
+function rechpassword($id)
+{
+  $bdd=co_db();
+  $req = $bdd->prepare("SELECT password FROM clients WHERE id=?");
+  $req->execute(array($id));
+  return $req;
+}
+
 function InfoGameplat($plateform){
     $bdd=co_db();
     $req = $bdd->query("SELECT * FROM jeux WHERE plateform IN (\"$plateform\")");

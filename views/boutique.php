@@ -51,6 +51,7 @@
 	      echo "<input type=\"submit\" value=\"Rafraichir\"/>";
 	      echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
         echo "<a href=\"".htmlspecialchars("boutique?action=suppressionPanier")."\"><input type=\"button\" value=\"Vider panier\"></a>";
+				echo "<a href=\"biblio \"><input type=\"button\" value=\"continuer achat\"></a>";
         echo "<a href=\"accueil \"><input type=\"button\" value=\"Retour\"></a>";
 	      echo "</td></tr>";
 	   }

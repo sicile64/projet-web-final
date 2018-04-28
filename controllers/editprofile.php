@@ -1,7 +1,7 @@
 <?php
 session_start();
-/*include('modifprofil.php');*/
+require('models/bdd.php');
+require('models/request.php');
+require('modifprofil.php');
 include('views/editprofile.php');
-
-
  ?>
