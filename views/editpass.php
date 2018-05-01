@@ -15,10 +15,9 @@
   <body>
     <div class="container">
       <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">modifier profile</h1>
+        <h1 class="h3 mb-3 font-weight-normal">modifier password</h1>
       </div>
       <form class="form-signin" method="post">
-
         <div class="form-label-group">
           <input type="password" id="oldpassword" class="form-control" placeholder="oldpassword" name="oldpassword" required autofocus>
           <label for="oldpassword"> ancien password</label>
@@ -31,7 +30,7 @@
           <input type="password" id="passwordconf" class="form-control" placeholder="passwordconf" name="passwordconf" required autofocus>
           <label for="passwordconf"> confirmer password</label>
         </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">modifer</button>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">modifier</button>
               <br>
               <a href="profile"><button class="btn btn-lg btn-primary btn-block" type="button">Retour</button></a>
         <?php

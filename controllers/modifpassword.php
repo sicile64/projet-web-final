@@ -4,19 +4,18 @@ if(!empty($_POST)){
   if(!empty($_POST['oldpassword']) AND !empty($_POST['newpassword']) AND !empty($_POST['passwordconf']))
   {
     $bdd=co_db();
-    $oldpassword=rechpassword($_SESSION['id']);
-    $oldpassword=$oldpassword->fetch();
-    $errorMessage=$oldpassword;
+    $req=rechpassword($_SESSION['id']);
+    $oldpassword=$req->fetch();
     $password=md5($_POST['newpassword']);
     $passwordconf=md5($_POST['passwordconf']);
     $pass=md5($_POST['oldpassword']);
 
-    if ($oldpassword==$pass)
+    if ($oldpassword['password']==$pass)
     {
       if($password==$passwordconf)
       {
-        $errorMessage="test";
-        setProfile($password);
+        $err=setPassword($password);
+
         header('Location:profile');
       }
       else
@@ -27,8 +26,8 @@ if(!empty($_POST)){
     else{
      $errorMessage="l'ancien mots de passe de correspond pas";
     }
+  } elseif(isset($_POST['id'])) {
+    $_SESSION['id'] = $_POST['id'];
   }
-
-
 }
  ?>

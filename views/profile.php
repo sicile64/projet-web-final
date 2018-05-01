@@ -15,6 +15,8 @@
             <h2>Profil de <?=$userinfo['login'] ?></h2>
             <br>
             <label>Login : <?=$userinfo['login'] ?></label>
+
+            <?php echo $userinfo['idclient']; ?>
       <br>
       <label>Email : <?=$userinfo['email'] ?></label>
       <br>
@@ -27,8 +29,8 @@
             </label>
             <br>
             <div class="containerPro">
-              <form class="" action="editprofile" method="post">
-                  <input type="hidden" name="id" value="<?=$userinfo['login']?>">
+              <form class="" action="editpass" method="post">
+                  <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
                   <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier mots de passe">
               </form>
               <br>

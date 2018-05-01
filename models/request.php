@@ -91,19 +91,17 @@ function setGameData($id,$prix,$description,$date)
    $req = $bdd->prepare('UPDATE jeux SET prix="'.$prix.'", description="'.$description.'", datesortie="'.$date.'" WHERE  idjeux='.$id);
    $req->execute();
 }
-
-function setProfile($password)
+function setPassword($password)
 {
   $bdd=co_db();
-   $req = $bdd->prepare('UPDATE clients SET password="'.$password);
-   $req->execute();
+  $req=$bdd->prepare('UPDATE clients SET password=?');
+  $req->execute(array($password));
 }
 
 function rechpassword($id)
 {
   $bdd=co_db();
-  $req = $bdd->prepare("SELECT password FROM clients WHERE id=?");
-  $req->execute(array($id));
+  $req = $bdd->query("SELECT password FROM clients WHERE idclient=".$id);
   return $req;
 }
 
