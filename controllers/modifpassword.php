@@ -9,23 +9,29 @@ if(!empty($_POST)){
     $password=md5($_POST['newpassword']);
     $passwordconf=md5($_POST['passwordconf']);
     $pass=md5($_POST['oldpassword']);
+      if($oldpassword['password']!=$password)
+        {
+          if ($oldpassword['password']==$pass)
+            {
+              if($password==$passwordconf)
+              {
+                $err=setPassword($password);
 
-    if ($oldpassword['password']==$pass)
-    {
-      if($password==$passwordconf)
-      {
-        $err=setPassword($password);
+                header('Location:profile');
+              }
+              else
+              {
+                $errorMessage="les mots de passe ne corresponde pas";
+              }
+            }
+            else{
+              $errorMessage="l'ancien mots de passe de correspond pas";
+                }
+        }
+        else{
+          $errorMessage="le nouveau mots de passe doit etre différent de l'ancien";
+        }
 
-        header('Location:profile');
-      }
-      else
-      {
-        $errorMessage="les mots de passe ne corresponde pas";
-      }
-    }
-    else{
-     $errorMessage="l'ancien mots de passe de correspond pas";
-    }
   } elseif(isset($_POST['id'])) {
     $_SESSION['id'] = $_POST['id'];
   }

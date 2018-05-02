@@ -97,11 +97,24 @@ function setPassword($password)
   $req=$bdd->prepare('UPDATE clients SET password=?');
   $req->execute(array($password));
 }
+function setEmail($newemail)
+{
+  $bdd=co_db();
+  $req=$bdd->prepare('UPDATE clients SET email=?');
+  $req->execute(array($newemail));
+}
 
 function rechpassword($id)
 {
   $bdd=co_db();
   $req = $bdd->query("SELECT password FROM clients WHERE idclient=".$id);
+  return $req;
+}
+
+function rechemail($id)
+{
+  $bdd=co_db();
+  $req = $bdd->query("SELECT email FROM clients WHERE idclient=".$id);
   return $req;
 }
 

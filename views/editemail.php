@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Modifier mots de passe</title>
+    <title>Modifier email</title>
     <meta charset = "utf-8"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/connexion.css">
@@ -15,20 +15,16 @@
   <body>
     <div class="container">
       <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">modifier password</h1>
+        <h1 class="h3 mb-3 font-weight-normal">modifier email</h1>
       </div>
       <form class="form-signin" method="post">
         <div class="form-label-group">
-          <input type="password" id="oldpassword" class="form-control" placeholder="oldpassword" name="oldpassword" required autofocus>
-          <label for="oldpassword"> ancien password</label>
+          <input type="mail" id="email" class="form-control" placeholder="email" name="email" required autofocus>
+          <label for="email">nouvelle adresse email</label>
         </div>
         <div class="form-label-group">
-          <input type="password" id="newpassword" class="form-control" placeholder="newpassword" name="newpassword" required autofocus>
-          <label for="newpassword"> nouveau password</label>
-        </div>
-        <div class="form-label-group">
-          <input type="password" id="passwordconf" class="form-control" placeholder="passwordconf" name="passwordconf" required autofocus>
-          <label for="passwordconf"> confirmer password</label>
+          <input type="password" id="password" class="form-control" placeholder="password" name="password" required autofocus>
+          <label for="password"> mots de passe</label>
         </div>
               <button class="btn btn-lg btn-primary btn-block" type="submit">modifier</button>
               <br>
