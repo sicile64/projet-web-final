@@ -10,25 +10,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
-  <body><h1>feedback</h1>
+  <body><h1 align="center">feedback</h1>
   <br>
   <br>
-  <form>
-    <div class="form-group">
-      <label for="id">idenfiant</label>
-      <input type="text" class="form-control" id="login" placeholder="id">
-    </div>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="id">idenfiant</label>
+        <input type="text" disabled="disabled" class="form-control" id="login" placeholder="id" value="<?= $_SESSION['login'] ?>">
+      </div>
 
-    <div class="form-group">
-      <label for="text">entrez text ici</label>
-      <textarea class="form-control" id=""placeholder="entrez votre text ici" rows="5"></textarea>
+      <div class="form-group">
+        <label for="text">entrez text ici</label>
+        <textarea class="form-control" id=""placeholder="entrez votre text ici" rows="5"></textarea>
+      </div>
+      <div class="button">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer </button>
+      <br>
+      <a href="accueil"><button class="btn btn-lg btn-primary btn-block"type="button">Retour</button></a>
     </div>
-    <div class="button">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer </button>
-    <br>
-    <a href="accueil"><button class="btn btn-lg btn-primary btn-block"type="button">Retour</button></a>
+    </form>
   </div>
-  </form>
+
 
 
 

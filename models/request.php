@@ -65,6 +65,14 @@ $req = $bdd->query("SELECT * FROM jeux");
 return $req;
 }
 
+ function rechercherjeux($chercher)
+ {
+   $bdd=co_db();
+   $req=$bdd->prepare("SELECT * FROM jeux WHERE nom like concat('%',?,'%')");
+   $req->execute(array($chercher));
+   return $req;
+ }
+
 function delGame($id){
  $bdd = co_db();
  $req = $bdd->query('DELETE FROM jeux WHERE idjeux = '.$id);
