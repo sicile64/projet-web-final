@@ -38,7 +38,10 @@
                               <input class="btn btn-sm btn-outline-secondary" value="Détails" type="submit">
                           </form>
                           <?php  if(isset($_SESSION['login_admin'])){ ?>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
+                            <form action="editgame" method="get">
+                                <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
+                                <input value="modifier" type="submit"/>
+                             </form>
                         <?php } ?>
                         <?php  if(isset($_SESSION['login'])){ ?>
                           <form action="addpaniers" method="post">

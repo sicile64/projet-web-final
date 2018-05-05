@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="containerBoutique">
-<form method="post" action="boutique">
+<form method="post">
 	<table class="table">
 	  <thead class="thead-dark">
 	    <tr>
@@ -25,40 +25,27 @@
 
 	<?php
 	if (creationPanier())
-	{?>
-		<?php
+	{
 	   $nbArticles=count($_SESSION['panier']['idjeux']);
-	   if ($nbArticles <= 0){?>
-
-	   <tr><td>Votre panier est vide <br/><br/><a href="accueil"><input type="button" value="Retour"></a></td></tr>
-
-	 <?php }else{
+	   if ($nbArticles > 0){
 	      for ($i=0 ;$i < $nbArticles ; $i++){?>
+
 	          <tr>
 	          <td><?=htmlspecialchars($_SESSION['panier']['nom'][$i])?></td>
-	         	<td><input type="text" size="4" name="q[]" value=<?= htmlspecialchars($_SESSION['panier']['qte'][$i])?>></td>
+	         	<td><?=htmlspecialchars($_SESSION['panier']['qte'][$i])?></td>
 	         	<td><?=htmlspecialchars($_SESSION['panier']['prix'][$i])?></td>
             <td><?=htmlspecialchars($_SESSION['panier']['plateform'][$i]) ?></td>
-	       		<td><a href=<?=htmlspecialchars("boutique?action=suppression&l=".rawurlencode($_SESSION['panier']['idjeux'][$i]))?>>X</a></td>
 	          </tr>
 	    <?php } ?>
 
-	       <tr><td colspan="2"> </td>
+	       <tr><td colspan="2"></td>
 	       <td colspan="2">
-	       Total : <?= MontantGlobal() ;?>€
+	       Total : <?= MontantGlobal() ;?> €
 	       </td></tr>
-
 	       <tr><td colspan="4">
-	       <input type="submit" value="Rafraichir"/>
-	       <input type="hidden" name="action" value="refresh"/>
-         <a href=<?=htmlspecialchars("boutique?action=suppressionPanier")?>><input type="button" value="Vider panier"></a>
-				 <a href="biblio"><input type="button" value="continuer achat"></a>
+				 <input type="submit" value="commander">
          <a href="accueil"><input type="button" value="Retour"></a>
 	       </td></tr>
-				 <tr><td colspan="4">
-				 <br>
-				 <a href="validation"><input type="button" value="valider Achat(s)"></a>
-			 	 </td></tr>
 				 <?php
 	   }
 	}

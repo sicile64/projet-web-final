@@ -93,18 +93,44 @@ function infogame($id)
   return $info=$req->fetch();
 }
 
+function addjeuvendu($onum, $panier){
+        $bdd = co_db();
+        $req = $bdd->prepare("INSERT INTO commandef (idcommande,idjeux,qteV,prix) VALUES (?,?,?,?)");
+        for($i=0;$i<count($panier['idjeux']);$i++){
+            $req->execute(array($onum,$panier['idjeux'][$i],$panier['qte'][$i],$panier['prix'][$i]));
+        }
+        return true;
+}
+
+function addcommande($idclient, $total){
+    $bdd = co_db();
+    $req = $bdd->prepare("INSERT INTO commande(idclients, prix, datecom) VALUES(?, ?, NOW())");
+    $req->execute(array($idclient, $total));
+    return true;
+
+}
+
+function Lastonum(){
+    $bdd = co_db();
+    $req = $bdd->query("SELECT idcommande FROM commande ORDER BY idcommande DESC LIMIT 1");
+    return $req->fetch();
+}
+
+
 function setGameData($id,$prix,$description,$date)
 {
   $bdd=co_db();
    $req = $bdd->prepare('UPDATE jeux SET prix="'.$prix.'", description="'.$description.'", datesortie="'.$date.'" WHERE  idjeux='.$id);
    $req->execute();
 }
+
 function setPassword($password)
 {
   $bdd=co_db();
   $req=$bdd->prepare('UPDATE clients SET password=?');
   $req->execute(array($password));
 }
+
 function setEmail($newemail)
 {
   $bdd=co_db();

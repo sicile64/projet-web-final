@@ -50,6 +50,7 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
                  <div class="dropdown-menu" aria-labelledby="dropdown01">
                    <a class="dropdown-item" href="panneau">Gestion utilisateur</a>
                    <a class="dropdown-item" href="panneaujeux">Gestion des jeux</a>
+                    <a class="dropdown-item" href="graphique">Graphique</a>
                    <a class="dropdown-item" href="logout">Deconnexion</a>
                  </div>
             <?php }else{?>
@@ -72,7 +73,7 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
         <?php }?>
         </ul>
         <form action="rechjeux" class="form-inline my-2 my-lg-0" method="post">
-          <input  name="recjeux" class="form-control mr-sm-2" type="text" placeholder="rechercher" aria-label="Rechercher">
+          <input autocomplete="off"  name="recjeux" class="form-control mr-sm-2" type="text" id="recherche" placeholder="rechercher" aria-label="Rechercher">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
       </div>
