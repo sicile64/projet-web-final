@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       $req = addcommande($idclient, $total);
       $onum = Lastonum();
       $add = addjeuvendu($onum['idcommande'], $_SESSION['panier']);
-
       if($req && $add){
        supprimePanier();
        header("Location:biblio");

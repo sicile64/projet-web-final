@@ -33,6 +33,14 @@ function getAdmin($login) {
     return $info=$req->fetch();
 }
 
+function BGames() {
+    $bdd = co_db();
+    $req = $bdd->prepare("SELECT idjeux, SUM(qteV) mycount FROM commandef GROUP BY idjeux ORDER BY mycount DESC");
+    $req->execute();
+
+    return $req;
+  }
+
 function AllinfoTable(){
 $bdd=co_db();
 $req = $bdd->query("SELECT * FROM clients");
