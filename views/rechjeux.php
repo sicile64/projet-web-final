@@ -32,17 +32,10 @@
                         <div class="btn-group">
                           <button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['plateform']?></button>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Prix:<?=$donnees['prix']?>€</button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Pegi:<?=$donnees['pegi']?></button>
                           <form action="details" method="post">
                               <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
                               <input class="btn btn-sm btn-outline-secondary" value="Détails" type="submit">
                           </form>
-                          <?php  if(isset($_SESSION['login_admin'])){ ?>
-                            <form action="editgame" method="get">
-                                <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
-                                <input value="modifier" type="submit"/>
-                             </form>
-                        <?php } ?>
                         <?php  if(isset($_SESSION['login'])){ ?>
                           <form action="addpaniers" method="post">
                             <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >

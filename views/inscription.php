@@ -17,30 +17,30 @@
         <img class="imageco" src="" alt="img" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
       </div>
+        <label>Login</label>
       <div class="form-label-group">
         <input type="text" id="login" class="form-control" placeholder="login" name="login" required autofocus>
-        <label for="login">Login</label>
+        <label for="login"></label>
       </div>
+        <label>mots de passe</label>
       <div class="form-label-group">
         <input type="password" id="password" class="form-control" placeholder="password" name="password" required>
-        <label for="password">mot de passe</label>
+        <label for="password"></label>
       </div>
+        <label>confirmer mots de passe</label>
       <div class="form-label-group">
         <input type="password" id="confpassword" class="form-control" placeholder="confpassword" name="confpassword" required>
-        <label for="confpassword">confirmer mot de passe</label>
+        <label for="confpassword"></label>
       </div>
+        <label>E-mail</label>
       <div class="form-label-group">
         <input type="email" id="email" class="form-control" placeholder="inputEmail" name="email" required>
-        <label for="email">E-mail</label>
+        <label for="email"></label>
       </div>
+        <label>Date de naissance</label>
       <div class="form-label-group">
         <input type="date" id="datenaiss" class="form-control" placeholder="" name="datenaiss" required>
-        <label for="datenaiss">date de naissance</label>
-      </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> s'incrire a la newsletter
-        </label>
+        <label for="datenaiss"></label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Inscription </button>
       <br>

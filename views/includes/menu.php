@@ -23,15 +23,7 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
             </div>
           </li>
           <?php
-          if(!empty($_SESSION['login']))
-          {
-            ?>
-            <button class="btn btn-outline-success my-2 my-sm-0">
-              <a href="boutique">Mon Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nbjeu']?>)</a>
-              <?php } else{?>(0)<?php } ?>
-            </button>
-            <?php
-          }
+
          ?>
          <?php if(!empty($_SESSION['login'])) {?>
 
@@ -39,6 +31,8 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
              <div class="dropdown-menu" aria-labelledby="dropdown01">
                <a class="dropdown-item" href="profile">Profil de <?=$_SESSION['login']?></a>
+               <a class="dropdown-item" href="boutique">Panier<?php if(isset($_SESSION['panier'])){?>(<?=$_SESSION['nbjeu']?>)</a>
+                   <?php } else{?>(0)<?php } ?>
                <a class="dropdown-item" href="logout">Deconnexion</a>
              </div>
 
@@ -53,6 +47,7 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
                     <a class="dropdown-item" href="graphique">Graphique</a>
                    <a class="dropdown-item" href="logout">Deconnexion</a>
                  </div>
+               </li>
             <?php }else{?>
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Utilisateur</a>
@@ -65,7 +60,7 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
           <?php if(!empty($_SESSION['login'])){
             ?>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="feedback">FeedBack</a>
               </div>
@@ -73,8 +68,8 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
         <?php }?>
         </ul>
         <form action="rechjeux" class="form-inline my-2 my-lg-0" method="post">
-          <input autocomplete="off"  name="recjeux" class="form-control mr-sm-2" type="text" id="recherche" placeholder="rechercher" aria-label="Rechercher">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+          <input name="recjeux" class="form-control mr-sm-2" type="text" id="recherche" placeholder="recherche" aria-label="Rechercher">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> > </button>
         </form>
       </div>
     </nav>

@@ -17,21 +17,15 @@
         <img class="imageco" src="" alt="img" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
       </div>
-
+      <label>Login</label>
       <div class="form-label-group">
         <input type="text" id="loginconnect" class="form-control" placeholder="login" name="loginconnect" required autofocus>
-        <label for="loginconnect">Login</label>
+        <label for="loginconnect"></label>
       </div>
-
+        <label>mots de passe</label>
       <div class="form-label-group">
         <input type="password" id="passwordco" class="form-control" placeholder="password" name="passwordco" required>
-        <label for="passwordco">mot de passe</label>
-      </div>
-
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> ce souvenir de moi
-        </label>
+        <label for="passwordco"></label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion </button>
       <br>

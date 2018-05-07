@@ -16,18 +16,19 @@
         <br/>
         <h1 align="center"> Panneau Jeux </h1>
         <br/>
-            <div class="row">
-                        <br>
-                        <div class="col-md-1"><div align="center">Nom</div></div>
-                        <div class="col-md-1"><div align="center">Genre</div></div>
-                        <div class="col-md-1"><div align="center">plateforme</div></div>
-                        <div class="col-md-1"><div align="center">editeur</div></div>
-                        <div class="col-md-1"><div align="center">prix</div></div>
-                        <div class="col-md-1"><div align="center">pegi</div></div>
-                        <div class="col-md-3"><div align="center">description</div></div>
-                        <div class="col-md-1"><div align="center">date de sortie</div></div>
-                        <div class="col-md-1"><div align="center">modifier</div></div>
-                        <div class="col-md-1"><div align="center">supprimer</div></div>
-
-            </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"><div align="center">Nom</div></th>
+              <th scope="col"><div align="center">Genre</div></th>
+              <th scope="col"><div align="center">Plateforme</div></th>
+              <th scope="col"><div align="center">Editeur</div></th>
+              <th scope="col"><div align="center">Prix</div></th>
+              <th scope="col"><div align="center">Pegi</div></th>
+              <th scope="col"><div align="center">Description</div></th>
+              <th scope="col"><div align="center">Date de sortie</div></th>
+              <th scope="col"><div align="center">Modifier</div></th>
+              <th scope="col"><div align="center">Supprimer</div></th>
+            </tr>
+          </thead>
 </html>

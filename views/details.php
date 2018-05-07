@@ -34,7 +34,9 @@ if(isset($_POST['id'])){
                     <br>
                     <label>Nom du jeu : <?=$donnees['nom']?></label>
                     <br>
-                    <label>Date de sortie : <?=$donnees['datesortie']?></label>
+                    <label>Genre : <?=$donnees['genre']?></label>
+                    <br>
+                    <label>Description : <?=$donnees['description']?></label>
                     <br>
                     <label>Pegi : <?=$donnees['pegi']?></label>
                     <br>
@@ -42,6 +44,7 @@ if(isset($_POST['id'])){
                     <br>
                     <label>Prix : <?=$donnees['prix']?> €</label>
                     <br>
+                    <label>Date de sortie : <?=$donnees['datesortie']?></label>
                     <?php if(!empty($_SESSION['login'])){ ?>
                     <form action="addpaniers" method="post">
                       <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >

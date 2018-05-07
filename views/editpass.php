@@ -18,17 +18,20 @@
         <h1 class="h3 mb-3 font-weight-normal">modifier password</h1>
       </div>
       <form class="form-signin" method="post">
+        <label>ancien mots de passe</label>
         <div class="form-label-group">
           <input type="password" id="oldpassword" class="form-control" placeholder="oldpassword" name="oldpassword" required autofocus>
-          <label for="oldpassword"> ancien password</label>
+          <label for="oldpassword"></label>
         </div>
+        <label>nouveau mots de passe</label>
         <div class="form-label-group">
           <input type="password" id="newpassword" class="form-control" placeholder="newpassword" name="newpassword" required autofocus>
-          <label for="newpassword"> nouveau password</label>
+          <label for="newpassword"></label>
         </div>
+        <label>confirmer mots de passe</label>
         <div class="form-label-group">
           <input type="password" id="passwordconf" class="form-control" placeholder="passwordconf" name="passwordconf" required autofocus>
-          <label for="passwordconf"> confirmer password</label>
+          <label for="passwordconf"></label>
         </div>
               <button class="btn btn-lg btn-primary btn-block" type="submit">modifier</button>
               <br>

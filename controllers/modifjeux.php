@@ -10,7 +10,7 @@ if(!empty($_POST)){
     $infogame=infogame($id);
     if($prix==$infogame['prix'])
     {
-      $errorMesssage="vous ne pouvez pas mettre le même prix";
+      $errorMessage="vous ne pouvez pas mettre le même prix";
     }
     else{
       setGameData($id, $prix, $description, $date);
@@ -18,7 +18,7 @@ if(!empty($_POST)){
     }
   }
   else{
-    $errorMesssage="des champs sont vide";
+    $errorMessage="des champs sont vide";
   }
 
 }

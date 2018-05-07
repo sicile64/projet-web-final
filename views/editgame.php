@@ -17,15 +17,17 @@
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">modifier jeux</h1>
       </div>
+      <label>prix</label>
       <div class="form-label-group">
         <input type="number" id="prix" class="form-control" placeholder="prix" name="prix" step="0.01" required autofocus>
-        <label for="prix">prix</label>
+        <label for="prix"></label>
       </div>
+      <label>date</label>
       <div class="form-label-group">
         <input type="date" id="date" class="form-control" placeholder="date" name="date" required autofocus>
-        <label for="date">date</label>
+        <label for="date"></label>
       </div>
-
+      <label>description</label>
       <div class="form-label-group">
         <textarea name="description" class="textarea" required></textarea>
     </div>

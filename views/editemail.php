@@ -18,13 +18,15 @@
         <h1 class="h3 mb-3 font-weight-normal">modifier email</h1>
       </div>
       <form class="form-signin" method="post">
+        <label>nouvelle adresse email</label>
         <div class="form-label-group">
           <input type="mail" id="email" class="form-control" placeholder="email" name="email" required autofocus>
-          <label for="email">nouvelle adresse email</label>
+          <label for="email"></label>
         </div>
+        <label>mots de passe</label>
         <div class="form-label-group">
           <input type="password" id="password" class="form-control" placeholder="password" name="password" required autofocus>
-          <label for="password"> mots de passe</label>
+          <label for="password"></label>
         </div>
               <button class="btn btn-lg btn-primary btn-block" type="submit">modifier</button>
               <br>
