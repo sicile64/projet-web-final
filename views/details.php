@@ -36,6 +36,8 @@ if(isset($_POST['id'])){
                     <br>
                     <label>Genre : <?=$donnees['genre']?></label>
                     <br>
+                    <label> Editeur : <?=$donnees['editeur']?></label>
+                    <br>
                     <label>Description : <?=$donnees['description']?></label>
                     <br>
                     <label>Pegi : <?=$donnees['pegi']?></label>
@@ -51,7 +53,6 @@ if(isset($_POST['id'])){
                       <input  type="submit" class="btn btn-outline-success my-2 my-sm-0" value="acheter">
                     </form>
                     <?php } ?>
-                    <br>
                     <a href="accueil"><button align="center" class="btn btn-outline-success my-2 my-sm-0" type="button" name="button">Retour</button><a>
                 </div>
             </div>

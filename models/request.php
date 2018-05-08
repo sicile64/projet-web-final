@@ -132,18 +132,18 @@ function setGameData($id,$prix,$description,$date)
    $req->execute();
 }
 
-function setPassword($password)
+function setPassword($password, $id)
 {
   $bdd=co_db();
-  $req=$bdd->prepare('UPDATE clients SET password=?');
-  $req->execute(array($password));
+  $req=$bdd->prepare('UPDATE clients SET password=? WHERE idclient=?');
+  $req->execute(array($password,$id));
 }
 
-function setEmail($newemail)
+function setEmail($newemail,$id)
 {
   $bdd=co_db();
-  $req=$bdd->prepare('UPDATE clients SET email=?');
-  $req->execute(array($newemail));
+  $req=$bdd->prepare('UPDATE clients SET email=? WHERE idclient= ?');
+  $req->execute(array($newemail,$id));
 }
 
 function rechpassword($id)

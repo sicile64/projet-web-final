@@ -15,7 +15,7 @@ if(!empty($_POST)){
             {
               if($password==$passwordconf)
               {
-                $err=setPassword($password);
+                $err=setPassword($password,$_SESSION['id']);
 
                 header('Location:profile');
               }

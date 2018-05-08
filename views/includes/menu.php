@@ -57,15 +57,6 @@ if(!empty($_SESSION['panier'])) $_SESSION['nbjeu']=compterArticles();
            </div>
          </li>
        <?php }}?>
-          <?php if(!empty($_SESSION['login'])){
-            ?>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="feedback">FeedBack</a>
-              </div>
-            </li>
-        <?php }?>
         </ul>
         <form action="rechjeux" class="form-inline my-2 my-lg-0" method="post">
           <input name="recjeux" class="form-control mr-sm-2" type="text" id="recherche" placeholder="recherche" aria-label="Rechercher">

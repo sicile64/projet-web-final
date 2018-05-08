@@ -10,14 +10,11 @@ if(!empty($_POST)){
     $confpass=md5($_POST['password']);
     $password=$req->fetch();
     $email=$request->fetch();
-    echo $password['password'];
-    echo '//////';
-    echo $confpass;
     if($email['email']!=$newemail)
     {
       if ($password['password']==$confpass)
       {
-          $err=setEmail($newemail);
+          $err=setEmail($newemail,$_SESSION['id']);
           header('Location:profile');
       }
       else{
