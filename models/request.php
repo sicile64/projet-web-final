@@ -1,5 +1,5 @@
 <?php
-
+//pour voir si le login existe lors de la connexion
  function logExist($login) {
    $bdd = co_db();
    $reponse = $bdd->prepare("SELECT * FROM clients  WHERE login = ?");
@@ -7,13 +7,14 @@
    return $reponse->rowCount();
  }
 
+//pour savoir si le mail existe lors de la connexion
  function emailExist($email) {
    $bdd = co_db();
    $reponse = $bdd->prepare("SELECT * FROM clients WHERE email = ?");
    $reponse->execute(array($email));
    return $reponse->rowCount();
  }
-
+//fonction qui permet d'ajouter des user a la db
  function addUser($login, $password, $email, $datenaiss){
   $bdd = co_db();
   $req = $bdd->prepare("INSERT INTO clients(login, password, email, datenaiss) VALUES(?, ?, ?, ?)");
@@ -21,18 +22,30 @@
   return $req;
 }
 
+//permet de savoir si c'est un client
 function getUser($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM clients WHERE login IN(\"$login\")");
     return $info=$req->fetch();
 }
 
+//permet de savoir si c'est un admin
 function getAdmin($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM admin WHERE login IN(\"$login\")");
     return $info=$req->fetch();
 }
+//permet de voir info commande
+function infoCommande($id){
+  $bdd=co_db();
+  $req=$bdd->prepare("SELECT c.idcommande,c.datecom,cf.qteV,cf.prix,c.prixtot,j.nom,j.editeur,j.plateform,j.jacket,j.description FROM commande AS c, commandef AS cf, jeux AS j WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclients=? ORDER BY c.idcommande DESC");
+  $req->execute(array($id));
+  return $req;
 
+
+}
+
+//fonction pour le meilleur jeux vendue
 function BGames() {
     $bdd = co_db();
     $req = $bdd->prepare("SELECT idjeux, SUM(qteV) mycount FROM commandef GROUP BY idjeux ORDER BY mycount DESC");
@@ -47,12 +60,14 @@ $req = $bdd->query("SELECT * FROM clients");
 return $req;
 }
 
+//supprimer un utilisateur en fonction de l'id
 function delUser($id){
  $bdd = co_db();
  $req = $bdd->query('DELETE FROM clients WHERE idclient = '.$id);
  return $req;
 }
 
+//savoir si le jeux existe sur cette Plateforme
 function gameExist($nom ,$plateforme) {
   $bdd = co_db();
   $reponse = $bdd->prepare("SELECT * FROM jeux  WHERE nom = ? AND plateform= ?");
@@ -60,6 +75,7 @@ function gameExist($nom ,$plateforme) {
   return $reponse->rowCount();
 }
 
+//ajouter un jeux la db
 function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description, $date, $jacket){
  $bdd = co_db();
  $req = $bdd->prepare("INSERT INTO jeux(nom, genre, plateform, editeur, prix, pegi,description,datesortie,jacket) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -67,12 +83,14 @@ function addGame($nom, $genre, $plateforme, $editeur, $prix, $pegi,$description,
  return $req;
 }
 
+//avoir tout les info des jeux
 function AllinfoGame(){
 $bdd=co_db();
 $req = $bdd->query("SELECT * FROM jeux");
 return $req;
 }
 
+//de rechercher un jeux avec la barre de recherche
  function rechercherjeux($chercher)
  {
    $bdd=co_db();
@@ -81,12 +99,14 @@ return $req;
    return $req;
  }
 
+//supprimer un jeux
 function delGame($id){
  $bdd = co_db();
  $req = $bdd->query('DELETE FROM jeux WHERE idjeux = '.$id);
  return $req;
 }
 
+//info client en fnction de l'id
 function Infoid($id)
 {
  $bdd = co_db();
@@ -94,6 +114,7 @@ function Infoid($id)
  return $info=$req->fetch();
 }
 
+//info sur le jeux en focntion de l' id
 function infogame($id)
 {
   $bdd=co_db();
@@ -101,6 +122,7 @@ function infogame($id)
   return $info=$req->fetch();
 }
 
+//permet d' ajouter a la table commandef
 function addjeuvendu($onum, $panier){
         $bdd = co_db();
         $req = $bdd->prepare("INSERT INTO commandef (idcommande,idjeux,qteV,prix) VALUES (?,?,?,?)");
@@ -109,22 +131,23 @@ function addjeuvendu($onum, $panier){
         }
         return true;
 }
-
+//permet de commander un jeux
 function addcommande($idclient, $total){
     $bdd = co_db();
-    $req = $bdd->prepare("INSERT INTO commande(idclients, prix, datecom) VALUES(?, ?, NOW())");
+    $req = $bdd->prepare("INSERT INTO commande(idclients,prixtot, datecom) VALUES(?, ?, NOW())");
     $req->execute(array($idclient, $total));
     return true;
 
 }
 
+//permet de savoir le dernier enregistrement
 function Lastonum(){
     $bdd = co_db();
     $req = $bdd->query("SELECT idcommande FROM commande ORDER BY idcommande DESC LIMIT 1");
     return $req->fetch();
 }
 
-
+//mettre a jour un jeux
 function setGameData($id,$prix,$description,$date)
 {
   $bdd=co_db();
@@ -132,6 +155,7 @@ function setGameData($id,$prix,$description,$date)
    $req->execute();
 }
 
+//mettre a jour un mots de passe
 function setPassword($password, $id)
 {
   $bdd=co_db();
@@ -139,6 +163,7 @@ function setPassword($password, $id)
   $req->execute(array($password,$id));
 }
 
+//permet de changer les mail en foncion de l id
 function setEmail($newemail,$id)
 {
   $bdd=co_db();
@@ -146,6 +171,7 @@ function setEmail($newemail,$id)
   $req->execute(array($newemail,$id));
 }
 
+//permet de savoir si le mots de passs existe
 function rechpassword($id)
 {
   $bdd=co_db();
@@ -153,6 +179,7 @@ function rechpassword($id)
   return $req;
 }
 
+//permet de savoir si le mail existe
 function rechemail($id)
 {
   $bdd=co_db();
@@ -160,24 +187,28 @@ function rechemail($id)
   return $req;
 }
 
+//fonction qui permet de prendre tout les information des jeux en fonction de Plateforme
 function InfoGameplat($plateform){
     $bdd=co_db();
     $req = $bdd->query("SELECT * FROM jeux WHERE plateform IN (\"$plateform\")");
     return $req;
 }
 
+//fonction qui va chercher tout les jeux pour les fetch
 function InfoGameid($id){
   $bdd = co_db();
   $requser = $bdd->query("SELECT * FROM jeux WHERE idjeux=".$id);
   return $info=$requser->fetch();
 }
 
+//fonction qui va chercher tout les info pour les détails
 function details($id){
   $bdd = co_db();
   $requser = $bdd->query("SELECT * FROM jeux WHERE idjeux=".$id);
   return $requser;
 }
 
+//permet de créer un panier
 function creationPanier(){
 	if(!isset($_SESSION['panier'])){
       $_SESSION['panier'] = array();
@@ -191,6 +222,7 @@ function creationPanier(){
    return true;
 }
 
+//fonction qui permet d'ajouter des article au panier
 function ajoutPanier($idjeu, $nomjeu, $prix, $qte, $plateform){
 
    //Si le panier existe
@@ -224,6 +256,7 @@ function isVerrouille(){
    return false;
 }
 
+//modifier la quantité des article dans le panier
 function modifierQTeArticle($idjeu,$qte){
    //Si le panier éxiste
    if (creationPanier() && !isVerrouille())
@@ -246,6 +279,7 @@ function modifierQTeArticle($idjeu,$qte){
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
+//fonction qui permet de supprimer un article du panier
 function supprimerArticle($idjeu){
    //Si le panier existe
    if (creationPanier() && !isVerrouille())
@@ -280,6 +314,7 @@ function supprimerArticle($idjeu){
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
+//fonction pour le montant global du panier
 function MontantGlobal(){
    $total=0;
    for($i = 0; $i < count($_SESSION['panier']['idjeux']); $i++)
@@ -289,10 +324,12 @@ function MontantGlobal(){
    return $total;
 }
 
+//fonction pour supprimer le panier
 function supprimePanier(){
    unset($_SESSION['panier']);
 }
 
+//fonction qui permet de compter les article du panier
 function compterArticles()
 {
    if (isset($_SESSION['panier']))

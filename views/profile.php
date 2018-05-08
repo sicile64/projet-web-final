@@ -41,23 +41,38 @@
              echo $date_actuelle->diff($date_naiss)->format('%Y ans');
              ?></td>
            </tr>
+           <tr>
+             <td>
+               <form class="" action="editpass" method="post">
+                   <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
+                   <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier mots de passe">
+              </form>
+            </td>
+               <td>
+                 <form class="" action="editemail" method="post">
+                     <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
+                     <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier adresse email">
+                 </form>
+               </td>
+               <td>
+                 <form class="" action="consultC" method="post">
+                     <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
+                     <input class="btn btn-lg btn-primary btn-block" type="submit" value="consulter commande">
+                 </form>
+              </td>
+              <tr>
+                <td><a href="accueil"><button class="btn btn-lg btn-primary btn-block" type="submit">Retour</button></a></td>
+              </tr>
+
+
+             </div>
+           </tr>
+
          </tbody>
        </table>
 
 
-            <div class="containerPro">
-              <form class="" action="editpass" method="post">
-                  <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
-                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier mots de passe">
-              </form>
-              <br>
-              <form class="" action="editemail" method="post">
-                  <input type="hidden" name="id" value="<?=$userinfo['idclient']?>">
-                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="modifier adresse email">
-              </form>
-              <br>
-                <a href="accueil"><button class="btn btn-lg btn-primary btn-block" type="submit">Retour</button></a>
-            </div>
+
 
         </div>
     </body>

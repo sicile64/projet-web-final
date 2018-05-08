@@ -44,7 +44,7 @@
 	       </td></tr>
 	       <tr><td colspan="4">
 				 <input type="submit" value="commander">
-         <a href="accueil"><input type="button" value="Retour"></a>
+         <a href="boutique"><input type="button" value="Retour"></a>
 	       </td></tr>
 				 <?php
 	   }
