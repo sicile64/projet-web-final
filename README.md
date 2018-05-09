@@ -29,7 +29,7 @@ Installation Windows:
 - Enregistrer (Ctrl + S)
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
 - Aller sur cet emplacement : "C:\wamp64\alias\" ou  "D:\wamp64\alias\"
-- Copier le fichier : "projetfinal.conf" présent dans la racine du dossier Projetfinal
+- Copier le fichier : "projetfinal.conf" présent dans la racine du dossier projetfinal
 - Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\" ou "D:\wamp64\alias\"
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
 - Entrez le Nom d'utilisateur "root", le mot de passe (aucun par défault) et appuyer sur enter
