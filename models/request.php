@@ -38,10 +38,16 @@ function getAdmin($login) {
 //permet de voir info commande
 function infoCommande($id){
   $bdd=co_db();
-  $req=$bdd->prepare("SELECT c.idcommande,c.datecom,cf.qteV,cf.prix,c.prixtot,j.nom,j.editeur,j.plateform,j.jacket,j.description FROM commande AS c, commandef AS cf, jeux AS j WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclients=? ORDER BY c.idcommande DESC");
+  $req=$bdd->prepare("SELECT c.idcommande,c.datecom,cf.qteV,cf.prix,c.prixtot,j.nom,j.editeur,j.plateform,j.jacket,j.description FROM commande AS c, commandef AS cf, jeux AS j WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclients=? ORDER BY c.idcommande");
   $req->execute(array($id));
   return $req;
-
+}
+function getCommandeAdmin($id){
+$bdd=co_db();
+$req=$bdd->prepare("SELECT c.idcommande,c.prixtot,c.datecom,cf.qteV,cf.prix,j.nom,j.editeur,j.plateform,j.jacket,j.description,cl.login FROM commande AS c, commandef AS cf, jeux AS j, clients AS cl WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclient=?
+  AND c.idclient=? ORDER BY c.datecom ");
+$req->execute(array($id,$id));
+return$req;
 
 }
 
@@ -134,7 +140,7 @@ function addjeuvendu($onum, $panier){
 //permet de commander un jeux
 function addcommande($idclient, $total){
     $bdd = co_db();
-    $req = $bdd->prepare("INSERT INTO commande(idclients,prixtot, datecom) VALUES(?, ?, NOW())");
+    $req = $bdd->prepare("INSERT INTO commande(idclient,prixtot, datecom) VALUES(?, ?, NOW())");
     $req->execute(array($idclient, $total));
     return true;
 

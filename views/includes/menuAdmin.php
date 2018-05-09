@@ -9,6 +9,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="panneau">Gestion utilisateur</a>
           <a class="dropdown-item" href="panneaujeux">Gestion des jeux</a>
+           <a class="dropdown-item" href="listeCC">liste commande client</a>
           <a class="dropdown-item" href="graphique">Graphique</a>
           <a class="dropdown-item" href="logout">Deconnexion</a>
         </div>

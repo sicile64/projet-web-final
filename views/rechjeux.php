@@ -31,7 +31,6 @@
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                           <button type="button" class="btn btn-sm btn-outline-secondary"><?=$donnees['plateform']?></button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Prix:<?=$donnees['prix']?>€</button>
                           <form action="details" method="post">
                               <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
                               <input class="btn btn-sm btn-outline-secondary" value="Détails" type="submit">
