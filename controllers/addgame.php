@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                       }
                       else
                       {
-                        if($pegi==3 OR $pegi==12 OR $pegi==16 OR $pegi==18)
+                        if($pegi==3 OR $pegi==7 OR $pegi==12 OR $pegi==16 OR $pegi==18)
                         {
                           if(!empty($_FILES['jacket']['name']))
                           {

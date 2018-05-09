@@ -38,7 +38,7 @@ function getAdmin($login) {
 //permet de voir info commande
 function infoCommande($id){
   $bdd=co_db();
-  $req=$bdd->prepare("SELECT c.idcommande,c.datecom,cf.qteV,cf.prix,c.prixtot,j.nom,j.editeur,j.plateform,j.jacket,j.description FROM commande AS c, commandef AS cf, jeux AS j WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclients=? ORDER BY c.idcommande");
+  $req=$bdd->prepare("SELECT c.idcommande,c.datecom,cf.qteV,cf.prix,c.prixtot,j.nom,j.editeur,j.plateform,j.jacket,j.description FROM commande AS c, commandef AS cf, jeux AS j WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclient=? ORDER BY c.idcommande");
   $req->execute(array($id));
   return $req;
 }

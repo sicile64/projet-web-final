@@ -30,7 +30,7 @@ if(isset($_POST['id'])){
                   <h2>Fiche de <?=$donnees['nom']?></h2>
                   <br>
                   <?php $repertoire = 'images/imgGame/'; ?>
-                  <img  alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
+                  <img style="height: 350px;width:350px" alt="<?=$donnees['nom']?>" src="<?=$repertoire.$donnees['jacket']?>">
                     <br>
                     <label>Nom du jeu : <?=$donnees['nom']?></label>
                     <br>
@@ -53,6 +53,7 @@ if(isset($_POST['id'])){
                       <input  type="submit" class="btn btn-outline-success my-2 my-sm-0" value="acheter">
                     </form>
                     <?php } ?>
+                    <br>
                     <a href="accueil"><button align="center" class="btn btn-outline-success my-2 my-sm-0" type="button" name="button">Retour</button><a>
                 </div>
             </div>
