@@ -31,8 +31,6 @@ Installation Windows:
 - Aller sur cet emplacement : "C:\wamp64\alias\" ou  "D:\wamp64\alias\"
 - Copier le fichier : "projetfinal.conf" présent dans la racine du dossier Projetfinal
 - Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\" ou "D:\wamp64\alias\"
--
-
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
 - Entrez le Nom d'utilisateur "root", le mot de passe (aucun par défault) et appuyer sur enter
 - Cliquer sur "Nouvelle base de données", dans le menu sur la gauche
