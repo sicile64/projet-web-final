@@ -41,9 +41,6 @@ if(isset($_POST['plateform']))
                               <input type="hidden" name="id" value=<?=$donnees['idjeux']?>>
                               <input class="btn btn-sm btn-outline-secondary" value="Détails" type="submit">
                           </form>
-                          <?php  if(isset($_SESSION['login_admin'])){ ?>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Editer</button>
-                        <?php } ?>
                         <?php  if(isset($_SESSION['login'])){ ?>
                           <form action="addpaniers" method="post">
                             <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >
@@ -55,7 +52,7 @@ if(isset($_POST['plateform']))
                     </div>
                   </div>
                 </div>
-              <?php }?>
+              <?php }   $req->closeCursor();?>
               <?php  if(isset($_SESSION['login_admin'])){ ?>
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">

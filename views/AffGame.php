@@ -29,6 +29,9 @@
 <?php
         }
 
+        $req->closeCursor();
+
+
     }
     else{
       header('Location:accueil');

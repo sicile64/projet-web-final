@@ -10,6 +10,9 @@
     <title></title>
   </head>
   <body>
+    <?php include('includes/menu.php'); ?>
+    <br>
+    <br>
     <h1>rechercher les commande user<h1>
     <form action="listeCA" class="form-inline my-2 my-lg-0" method="post">
       <input name="login" class="form-control mr-sm-2" type="text" id="login" placeholder="recherche" aria-label="Rechercher">

@@ -18,7 +18,6 @@
             if($onum != $result['idcommande']){
             $onum = $result['idcommande']; ?>
             <tr>
-              <th scope="row">n°: <?=$result['idcommande'] ?></th>
               <td scope="row">Date: <?=$result['datecom'] ?></td>
               <td scope="row">Total: <?=$result['prixtot'] ?> €</td>
             </tr>
@@ -32,7 +31,7 @@
                   <td scope="row"><?=$result['prix'] ?> € /P</td>
                 </tr>
               </tbody>
-      <?php  } ?>
+      <?php  }  $req->closeCursor();?>
     </table>
     </div>
   </body>

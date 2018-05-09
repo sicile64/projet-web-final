@@ -5,6 +5,7 @@
    $reponse = $bdd->prepare("SELECT * FROM clients  WHERE login = ?");
    $reponse->execute(array($login));
    return $reponse->rowCount();
+
  }
 
 //pour savoir si le mail existe lors de la connexion
@@ -26,14 +27,18 @@
 function getUser($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM clients WHERE login IN(\"$login\")");
-    return $info=$req->fetch();
+    $info=$req->fetch();
+    $req->closeCursor();
+    return $info;
 }
 
 //permet de savoir si c'est un admin
 function getAdmin($login) {
     $bdd = co_db();
     $req = $bdd->query("SELECT * FROM admin WHERE login IN(\"$login\")");
-    return $info=$req->fetch();
+    $info=$req->fetch();
+    $req->closeCursor();
+    return $info;
 }
 //permet de voir info commande
 function infoCommande($id){
@@ -45,7 +50,7 @@ function infoCommande($id){
 function getCommandeAdmin($id){
 $bdd=co_db();
 $req=$bdd->prepare("SELECT c.idcommande,c.prixtot,c.datecom,cf.qteV,cf.prix,j.nom,j.editeur,j.plateform,j.jacket,j.description,cl.login FROM commande AS c, commandef AS cf, jeux AS j, clients AS cl WHERE c.idcommande=cf.idcommande AND cf.idjeux=j.idjeux AND c.idclient=?
-  AND c.idclient=? ORDER BY c.datecom ");
+  AND cl.idclient=? ORDER BY c.datecom ");
 $req->execute(array($id,$id));
 return$req;
 
@@ -117,7 +122,9 @@ function Infoid($id)
 {
  $bdd = co_db();
  $req = $bdd->query('SELECT * FROM clients WHERE idclient='.$id);
- return $info=$req->fetch();
+ $info=$req->fetch();
+ $req->closeCursor();
+ return $info;
 }
 
 //info sur le jeux en focntion de l' id
@@ -125,7 +132,9 @@ function infogame($id)
 {
   $bdd=co_db();
   $req=$bdd->query('SELECT * FROM jeux WHERE idjeux='.$id);
-  return $info=$req->fetch();
+  $info=$req->fetch();
+  $req->closeCursor();
+  return $info;
 }
 
 //permet d' ajouter a la table commandef
@@ -150,7 +159,9 @@ function addcommande($idclient, $total){
 function Lastonum(){
     $bdd = co_db();
     $req = $bdd->query("SELECT idcommande FROM commande ORDER BY idcommande DESC LIMIT 1");
-    return $req->fetch();
+    $info=$req->fetch();
+    $req->closeCursor();
+    return $info;
 }
 
 //mettre a jour un jeux
@@ -204,7 +215,9 @@ function InfoGameplat($plateform){
 function InfoGameid($id){
   $bdd = co_db();
   $requser = $bdd->query("SELECT * FROM jeux WHERE idjeux=".$id);
-  return $info=$requser->fetch();
+  $info=$requser->fetch();
+  $requser->closeCursor();
+  return $info;
 }
 
 //fonction qui va chercher tout les info pour les détails

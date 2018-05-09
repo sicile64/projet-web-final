@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>recherche sur <?=$req['login']?></title>
+    <title>recherche sur <?php if(!empty($_POST['login']))echo $req['login']?> </title>
   </head>
   <body>
     <?php include('includes/menuAdmin.php'); ?>
@@ -19,13 +19,14 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> ></button>
     </form>
     <div class="container">
-    <br><h1 id="title_commande">Commandes <?=$req['login'] ?></h1></h2><br>
+    <br><h1>Commandes de <?php if(!empty($_POST['login']))echo $req['login']?></h1></h2><br>
     <table class="table table-hover table-dark">
-      <?php while($result = $req2->fetch()){
+      <?php if(!empty($_POST['login'])){
+      while($result = $req2->fetch()){
             if($onum != $result['idcommande']){
             $onum = $result['idcommande']; ?>
             <tr>
-              <th scope="row">N°: <?=$result['idcommande'] ?></th>
+
               <td scope="row">Date: <?=$result['datecom'] ?></td>
               <td scope="row">Total: <?=$result['prixtot'] ?> €</td>
             </tr>
@@ -39,8 +40,11 @@
                   <td scope="row"><?=$result['prix'] ?> € / U</td>
                 </tr>
               </tbody>
-      <?php  } ?>
+      <?php  }   $req2->closeCursor();}?>
     </table>
+    <?php
+          if(isset($errorMessage))echo '<div align="center" style="font-size:25px"><font color="red">'.$errorMessage.'</font></div>';
+      ?>
   </ul>
 </body>
 </html>

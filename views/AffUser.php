@@ -18,6 +18,8 @@
     </div>
 <?php
         }
+        $req->closeCursor();
+      
 
     }
     else{

@@ -26,7 +26,7 @@ if(isset($_POST['id'])){
                 <div align="center">
                   <br>
                   <br>
-                  <br>
+
                   <h2>Fiche de <?=$donnees['nom']?></h2>
                   <br>
                   <?php $repertoire = 'images/imgGame/'; ?>
@@ -47,17 +47,19 @@ if(isset($_POST['id'])){
                     <label>Prix : <?=$donnees['prix']?> €</label>
                     <br>
                     <label>Date de sortie : <?=$donnees['datesortie']?></label>
+                    <br>
                     <?php if(!empty($_SESSION['login'])){ ?>
                     <form action="addpaniers" method="post">
                       <input type="hidden" name="id" value="<?=$donnees['idjeux']?>" >
                       <input  type="submit" class="btn btn-outline-success my-2 my-sm-0" value="acheter">
                     </form>
-                    <?php } ?>
-                    <br>
-                    <a href="accueil"><button align="center" class="btn btn-outline-success my-2 my-sm-0" type="button" name="button">Retour</button><a>
+                  <?php } ?>
+                      <a href="accueil"><button align="center" class="btn btn-outline-success my-2 my-sm-0" type="button" name="button">Retour</button><a>
+
+
                 </div>
             </div>
-    <?php }?>
+    <?php }   $requser->closeCursor();?>
     <?php include 'includes/footers.php' ?>
 </body>
 
