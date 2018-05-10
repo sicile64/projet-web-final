@@ -13,12 +13,9 @@
     <script type="text/javascript" src="js/graphique.js"></script>
   </head>
   <body>
-    <div id="main">
-      <?php include 'includes/menuAdmin.php'; ?>
-
+      <?php include('includes/menuAdmin.php');?>
       <div id="resultat" style="display:none"><?php echo implode("/",$resultat); ?></div>
       <div id="columnchart_values"></div>
-    </div>
     <?php include('includes/footers.php'); ?>
   </body>
 </html>

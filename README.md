@@ -42,4 +42,7 @@ Installation Windows:
 - Ensuite, cliquer sur "Exécuter"
 - Taper l'url suivante : "http://projetfinal.local"
 
+- login admin : francesco
+- mots de passe admin: jimi2010
+
 Fini !!!
