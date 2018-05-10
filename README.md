@@ -28,7 +28,6 @@ Installation Windows:
 - Rajouter la ligne : "127.0.0.1 projefinal.local" (ne pas mettre les guillemets)
 - Enregistrer (Ctrl + S)
 - Remettre le fichier hosts à cette emplacement "C:\Windows\System32\drivers\etc\hosts"
-- Aller sur cet emplacement : "C:\wamp64\alias\" ou  "D:\wamp64\alias\"
 - Copier le fichier : "projetfinal.conf" présent dans la racine du dossier projetfinal
 - Coller le fichier à l'emplacement suivant : "C:\wamp64\alias\" ou "D:\wamp64\alias\"
 - Aller sur un navigateur et lancer la page : "http://localhost/phpmyadmin/"
@@ -44,5 +43,8 @@ Installation Windows:
 
 - login admin : francesco
 - mots de passe admin: jimi2010
+
+- client login :franco
+- mots de passe client :juventus14
 
 Fini !!!
